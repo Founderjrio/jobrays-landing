@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fefce9;
+  --foreground: #0e1a4f;
+  --accent: #fdd76e;
+  --accent-hover: #fbbf24;
+  --highlight: #2767C7;
+  --navy: #06112d;
+  --muted: #4b5563;
+  --card: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+/* === Base Styles === */
+html, body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* === Buttons === */
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--foreground);
+  border: 2px solid var(--accent);
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: black;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--foreground);
+  border: 2px solid var(--foreground);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--accent);
+  color: black;
+}
+
+/* === Glass Box === */
+.glass-box {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 2rem;
+  animation: glowPulse 3s ease-in-out infinite;
+  color: var(--foreground);
+  position: relative;
+  overflow: hidden;
+}
+
+/* === Footer === */
+footer {
+  background-color: var(--navy);
+  color: white;
+  font-size: 0.85rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+footer a {
+  color: var(--accent);
+  font-weight: 500;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* === Utility === */
+.bg-accent {
+  background-color: var(--accent);
+}
+.text-muted {
+  color: var(--muted);
+}
+
+/* === Float Animation === */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* === Glow Pulse === */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(252, 211, 77, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(252, 211, 77, 0.9);
+  }
+}
+.animate-glowPulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* === Orb Pulse (Stronger) === */
+@keyframes orbPulse {
+  0%, 100% {
+    box-shadow: 0 0 24px rgba(255, 225, 0, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 64px rgba(255, 255, 0, 0.9);
+    transform: scale(1.08);
+  }
+}
+.animate-orbPulse {
+  animation: orbPulse 4s ease-in-out infinite;
+}
+
+/* === Hologram Glitch BG === */
+@keyframes holoGlitch {
+  0% {
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.05),
+      rgba(255,255,255,0.05) 2px,
+      transparent 2px,
+      transparent 6px
+    );
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(5px, -3px) scale(1.02);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.animate-holoGlitch {
+  animation: holoGlitch 3s infinite;
+}
+
+/* === Glitchy Text Shake === */
+@keyframes glitchText {
+  0% { transform: translate(0); }
+  33% { transform: translate(1px, -1px); }
+  66% { transform: translate(-1px, 1px); }
+  100% { transform: translate(0); }
+}
+.animate-glitchText {
+  animation: glitchText 3s infinite;
+}
+
+/* === Orbit Icons Around Orb === */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(110px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(110px) rotate(-360deg);
+  }
+}
+.orbit-container {
+  position: absolute;
+  top: 80%;
+  left: 80%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.orbit-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  animation: orbit 18s linear infinite;
+  opacity: 0.85;
+  transition: transform 0.2s ease;
+}
+
+@keyframes floatAnim {
+  0% { transform: translate(0px, 0px); }
+  50% { transform: translate(1px, 2px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+.floating-icon {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.85;
+  animation: floatAnim 16s ease-in-out infinite;
+  z-index: 1;
+}
+
+.icon-nudge {
+  transform: translateY(3px) translateX(3px) scale(1.05);
+  transition: transform 0.5s ease-in-out;
+}
