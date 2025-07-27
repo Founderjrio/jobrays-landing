@@ -14,7 +14,7 @@ export default function WaitlistForm() {
     const trimmedEmail = email.trim();
 
     try {
-      // ✅ Call your new local Vercel proxy API (no CORS needed)
+      // ✅ Proxy API route in Vercel – prevents CORS issues
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: {
