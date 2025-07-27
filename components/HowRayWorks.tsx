@@ -5,7 +5,7 @@ export default function HowRayWorks() {
     {
       icon: <FaUserCheck size={36} />,
       title: 'Upload Your Resume',
-      description: 'Ray reads your resume, extracts your skills, and builds a starting profile — no manual work required.',
+      description: 'Ray reads your resume, extracts your skills, and builds a starting profile — you just fill in the blanks.',
     },
     {
       icon: <FaMapSigns size={36} />,
