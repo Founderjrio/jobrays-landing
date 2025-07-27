@@ -14,10 +14,10 @@ export default function WaitlistForm() {
     const trimmedEmail = email.trim();
 
     try {
-      const baseUrl =
-        process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, '') ||
-        'http://localhost:8000';
-      const res = await fetch(`${baseUrl}/waitlist/submit`, {
+      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, '');
+      if (!baseUrl) throw new Error('Missing backend URL');
+
+      const res = await fetch(`${baseUrl}/waitlist`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,17 +26,17 @@ export default function WaitlistForm() {
       });
 
       const data = await res.json();
+
       if (res.ok) {
         setMessage(data.message || '✅ You’re on the list!');
         setEmail('');
       } else {
         setMessage(
-          data?.detail?.[0]?.msg ||
-            data?.message ||
-            '❌ Something went wrong.'
+          data?.detail?.[0]?.msg || data?.message || '❌ Something went wrong.'
         );
       }
     } catch (err) {
+      console.error(err);
       setMessage('🚨 Server error. Please try again later.');
     } finally {
       setLoading(false);
