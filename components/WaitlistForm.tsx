@@ -17,7 +17,7 @@ export default function WaitlistForm() {
       const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, '');
       if (!baseUrl) throw new Error('Missing backend URL');
 
-      const res = await fetch(`${baseUrl}/waitlist`, {
+      const res = await fetch(`${baseUrl}/waitlist/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
