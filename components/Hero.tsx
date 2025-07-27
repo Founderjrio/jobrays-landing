@@ -2,7 +2,13 @@
 
 import React, { useRef } from 'react';
 
-export default function Hero() {
+export default function Hero({
+  onWaitlistClick,
+  onHowRayWorksClick,
+}: {
+  onWaitlistClick: () => void;
+  onHowRayWorksClick: () => void;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -10,7 +16,7 @@ export default function Hero() {
     if (!container) return;
 
     const rect = container.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 30; // max ±5%
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 30;
     const y = ((e.clientY - rect.top) / rect.height - 0.5) * 30;
 
     container.style.setProperty('--parallax-x', `${x}px`);
@@ -39,10 +45,16 @@ export default function Hero() {
 
       {/* CTA Buttons */}
       <div className="mt-8 flex flex-col sm:flex-row gap-4">
-        <button className="btn-primary shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200">
+        <button
+          className="btn-primary shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+          onClick={onWaitlistClick}
+        >
           Join the Waitlist
         </button>
-        <button className="btn-outline hover:shadow-md hover:scale-105 transition-all duration-200">
+        <button
+          className="btn-outline hover:shadow-md hover:scale-105 transition-all duration-200"
+          onClick={onHowRayWorksClick}
+        >
           How JobRays Work
         </button>
       </div>
