@@ -14,10 +14,8 @@ export default function WaitlistForm() {
     const trimmedEmail = email.trim();
 
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, '');
-      if (!baseUrl) throw new Error('Missing backend URL');
-
-      const res = await fetch(`${baseUrl}/waitlist/submit`, {
+      // ✅ Call your new local Vercel proxy API (no CORS needed)
+      const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
