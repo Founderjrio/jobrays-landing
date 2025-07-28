@@ -7,7 +7,7 @@ export async function sendWelcomeEmail(email: string, isEarlyBonus: boolean) {
     ? `
       <p style="background: #f9f9f9; padding: 12px 16px; border-left: 4px solid #00B894;">
         🎁 <strong>Extra Perk:</strong> You’re among the first 400 to join!  
-        You’ll receive an exclusive bonus on your first month when we go live.  
+        You’ll receive an exclusive bonus on your first month joining us when we go live.  
         Just our way of saying thanks for believing in us early.
       </p>
     `
