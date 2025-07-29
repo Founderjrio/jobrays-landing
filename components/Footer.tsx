@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter, FaInstagram, FaFacebook } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -52,6 +52,15 @@ export default function Footer() {
             className="hover:text-[var(--accent)] transition"
           >
             <FaInstagram size={18} />
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61578371477449"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="JobRays on Facebook"
+            className="hover:text-[var(--accent)] transition"
+          >
+            <FaFacebook size={18} />
           </a>
         </div>
       </div>
