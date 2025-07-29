@@ -36,7 +36,7 @@ export default function Footer() {
             <FaLinkedin size={18} />
           </a>
           <a
-            href="https://twitter.com/jobrays"
+            href="https://x.com/JobRays_"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="JobRays on Twitter"
@@ -45,7 +45,7 @@ export default function Footer() {
             <FaTwitter size={18} />
           </a>
           <a
-            href="https://instagram.com/jobrays"
+            href="https://instagram.com/jobrays_"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="JobRays on Instagram"
